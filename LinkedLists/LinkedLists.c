@@ -23,7 +23,22 @@ struct Node* newNode(int data, struct Node *next) {
   return node;
 }
 
+// reverse the linked list starting at the given node
+struct Node* reverseList(struct Node *node) {
+  struct Node *prev = NULL;
+  struct Node *current = node;
+  struct Node *next;
 
+  // iterate through the list, reversing the links between nodes
+  while (current != NULL) {
+    next = current->next;
+    current->next = prev;
+    prev = current;
+    current = next;
+  }
+
+  return prev;
+}
 
 // print the contents of the linked list starting at the given node
 void printList(struct Node *node) {
